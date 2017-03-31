@@ -1,0 +1,29 @@
+[loggers]
+keys = {{package_logger}}, root
+
+[handlers]
+keys = logfile
+
+[formatters]
+keys = generic
+
+[logger_root]
+level = DEBUG
+handlers = logfile
+qualname = {{package}}
+formatter = generic
+
+[logger_{{package_logger}}]
+level = DEBUG
+handlers = logfile
+qualname = {{package}}
+formatter = generic
+
+[handler_logfile]
+class = handlers.TimedRotatingFileHandler
+args = ('/tmp/main.log', 'D', 1, 30)
+level = DEBUG
+formatter = generic
+
+[formatter_generic]
+format = %(asctime)s %(levelname)-5.5s [%(name)s:%(lineno)s] %(message)s

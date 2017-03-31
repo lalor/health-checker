@@ -1,0 +1,3 @@
+nose
+psutil
+MySQL-python==1.2.3
